@@ -1,4 +1,4 @@
-<li><a href="estudiante_registrar.jsp">Registrar estudiantes</a></li><%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
 <%@ page import="java.sql.*" %>
@@ -13,9 +13,9 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container mt-5">
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-2">
 		menus
 		<ul>
 			<li><a href="estudiante_registrar.jsp">Registrar estudiantes</a></li>
@@ -25,19 +25,13 @@
 		
 		
 		</div>
-		<div class="col-md-9">
-
-			
-			
-			
+		<div class="col-md-10">
 			<h1>Lista de Estudiantes</h1>
-			
-			
 			<%
 			// Obtienen las clases del Driver descargado
 			Class.forName("com.mysql.jdbc.Driver");
 			// Determinamos la cadena de conexion: la SGBD, el servidor y puerto y la DB
-			String url="jdbc:mysql://localhost:3306/sacademico";
+			String url="jdbc:mysql://localhost:3306/sis";
 			Connection con=DriverManager.getConnection(url,"root",""); 
 			Statement st=con.createStatement();
 			String sql="SELECT * FROM estudiante";
@@ -68,7 +62,7 @@
 					out.println("<td>"+rs.getString("correo")+"</trd>");
 					out.println("<td>"+rs.getString("direccion")+"</trd>");
 					out.println("<td>"+rs.getString("telefonos")+"</trd>");
-					out.println("<td><a href='estudiante_actualizar.jsp?id="+rs.getInt("id")+"'><i class='bi bi-journal-check'></i> Actualizar</a> <a href=''> <i class='bi bi-trash'></i>  Borra</a> </trd>");
+					out.println("<td><a href='estudiante_actualizar.jsp?id=" + rs.getInt("id") + "'><i class='bi bi-journal-check'></i> Actualizar</a> <a href='estudiantes_eliminar?id=" + rs.getInt("id") + "'> <i class='bi bi-trash'></i> Borrar</a></td>");
 					out.println("</tr>");
 				}
 				

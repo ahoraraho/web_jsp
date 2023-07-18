@@ -39,4 +39,14 @@
     <servlet-name>registrar_comentario</servlet-name>
     <url-pattern>/registrar_comentario</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>estudiantes_eliminar</display-name>
+    <servlet-name>estudiantes_eliminar</servlet-name>
+    <servlet-class>servlet.estudiantes_eliminar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>estudiantes_eliminar</servlet-name>
+    <url-pattern>/estudiantes_eliminar</url-pattern>
+  </servlet-mapping>
 </web-app>
