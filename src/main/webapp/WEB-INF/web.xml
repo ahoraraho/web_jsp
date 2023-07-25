@@ -39,4 +39,14 @@
     <servlet-name>registrar_comentario</servlet-name>
     <url-pattern>/registrar_comentario</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>proces_add_tasc</display-name>
+    <servlet-name>proces_add_tasc</servlet-name>
+    <servlet-class>servlet.proces_add_tasc</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>proces_add_tasc</servlet-name>
+    <url-pattern>/proces_add_tasc</url-pattern>
+  </servlet-mapping>
 </web-app>
