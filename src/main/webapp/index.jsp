@@ -2,6 +2,7 @@
     <!DOCTYPE html>
     <html lang="EA">
 
+<<<<<<< HEAD
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,12 +41,37 @@
         </header>
         <main>
         
+=======
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-md-3">
+		MENU
+		<ul>
+			<li><a href="estudiante_registrar.jsp">Registrar estudiantes</a></li>
+			<li><a href="estudiante_lista.jsp">Gestionar estudiantes</a></li>
+			
+			<li><a href="comentarios.jsp">Reseña</a></li>
+			<li><a href="AllResenas.jsp">Ver Reseñas</a></li>
+			
+			<li><a href="addTask.jsp">Add Tast</a></li>
+			<li><a href="taskView.jsp">Tasts</a></li>
+		</ul>
+				
+		
+		</div>
+		<div class="col-md-9">
+		
+		<h1>Calificacion de productos</h1>
+
+
+>>>>>>> d6da7433971e3e7a541e905d962bf786760312b6
 		<%
 String aalertt = ""; // Declarar las variables fuera del bloque JSP
 String conten = ""; // Declarar las variables fuera del bloque JSP
 
 if (request.getParameter("msj") != null) {
     String msj = request.getParameter("msj");
+<<<<<<< HEAD
     String error = request.getParameter("error");
     switch (msj) {
         case "addOk":
@@ -67,6 +93,29 @@ if (request.getParameter("msj") != null) {
         case "delOk":
             aalertt = "alert-danger";
             conten = "Eliminada correctamente";
+=======
+
+    switch (msj) {
+        case "addOk":
+            aalertt = "alert-success";
+            conten = "Agregado correctamente";
+            break;
+        case "addNOk":
+            aalertt = "alert-warning";
+            conten = "Ocurrió un error, no se agregó";
+            break;
+        case "upOk":
+            aalertt = "alert-success";
+            conten = "Actualizado correctamente";
+            break;
+        case "upNOk":
+            aalertt = "alert-warning";
+            conten = "Ocurrió un error, no se actualizó";
+            break;
+        case "delOk":
+            aalertt = "alert-danger";
+            conten = "Eliminado correctamente";
+>>>>>>> d6da7433971e3e7a541e905d962bf786760312b6
             break;
         default:
             // Opcionalmente, aquí puedes manejar un caso predeterminado si el valor de msj no coincide con ninguno de los casos anteriores.
@@ -74,6 +123,7 @@ if (request.getParameter("msj") != null) {
     }
 %>
 
+<<<<<<< HEAD
 <div>
     <div class="row justify-content-center">
         <div class="col-md-4">
@@ -83,6 +133,20 @@ if (request.getParameter("msj") != null) {
             </div>
         </div>
     </div>
+=======
+<div class="alert <%= aalertt %> alert-dismissible fade show" role="alert">
+    <strong>Estudiante!</strong> <%= conten %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<%
+}
+%>
+
+
+				
+		</div>
+	</div>
+>>>>>>> d6da7433971e3e7a541e905d962bf786760312b6
 </div>
 
 <%

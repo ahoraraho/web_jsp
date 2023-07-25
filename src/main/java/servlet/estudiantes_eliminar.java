@@ -1,7 +1,6 @@
 package servlet;
 
 import jakarta.servlet.ServletException;
-
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,18 +10,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-
-
 /**
- * Servlet implementation class estudiante_actualizar
+ * Servlet implementation class estudiantes_eliminar
  */
-public class estudiante_actualizar extends HttpServlet {
+public class estudiantes_eliminar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public estudiante_actualizar() {
+    public estudiantes_eliminar() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,19 +39,11 @@ public class estudiante_actualizar extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		String id, codigo, nombres, apellidos, correo, direccion, telefonos;
-		id=request.getParameter("id");
-		codigo=request.getParameter("codigo");
-		nombres=request.getParameter("nombres");
-		apellidos=request.getParameter("apellidos");
-		correo=request.getParameter("correo");
-		direccion=request.getParameter("direccion");
-		telefonos=request.getParameter("telefonos");
-		
-		
-		String sql = "UPDATE estudiante "
-	             + "SET codigo='" + codigo + "', nombres='" + nombres + "', apellidos='" + apellidos + "', correo='" + correo + "', direccion='" + direccion + "', telefonos='" + telefonos + "' "
-	             + "WHERE id=" + id;
+		String idParam = request.getParameter("id");
+		System.out.println("ID recibido en el Servlet: " + idParam);
+
+		String sql = "DELETE FROM estudiante "
+		           + "WHERE id=" + idParam;
 
 		
 		try {
@@ -63,12 +52,11 @@ public class estudiante_actualizar extends HttpServlet {
 			Connection con=DriverManager.getConnection(url,"root","");
 			Statement st=con.createStatement();
 			st.executeUpdate(sql);
-			response.sendRedirect("index.jsp?msj=upOk");
+			response.sendRedirect("index.jsp?msj=delOk");
 		} catch (Exception e) {
 			// TODO: handle exception
-			response.sendRedirect("index.jsp?msj=upNOk"+e.getMessage());
+			response.sendRedirect("index.jsp?msj=delNOk"+e.getMessage());
 		}	
-		
 	}
 
 }

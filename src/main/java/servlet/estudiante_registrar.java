@@ -36,8 +36,7 @@ public class estudiante_registrar extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		String id, codigo, nombres, apellidos, correo, direccion, telefonos;
-		id=request.getParameter("id");
+		String codigo, nombres, apellidos, correo, direccion, telefonos;
 		codigo=request.getParameter("codigo");
 		nombres=request.getParameter("nombres");
 		apellidos=request.getParameter("apellidos");
@@ -46,18 +45,17 @@ public class estudiante_registrar extends HttpServlet {
 		telefonos=request.getParameter("telefonos");
 		
 		
-		String sql="INSERT INTO estudiante(id,codigo,nombres,apellidos,correo,direccion,telefonos) VALUES('"
-				+id+"','"+codigo+"','"+nombres+"','"+apellidos+"','"+correo+"','"+direccion+"','"+telefonos+"')";
+		String sql="INSERT INTO estudiante(codigo,nombres,apellidos,correo,direccion,telefonos) VALUES('"+codigo+"','"+nombres+"','"+apellidos+"','"+correo+"','"+direccion+"','"+telefonos+"')";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url="jdbc:mysql://localhost:3306/sacademico";
+			String url="jdbc:mysql://localhost:3306/sis";
 			Connection con=DriverManager.getConnection(url,"root","");
 			Statement st=con.createStatement();
 			st.executeUpdate(sql);
-			response.sendRedirect("index.jsp?mensaje=Estudiante registrado con exito...");
+			response.sendRedirect("index.jsp?msj=addOk");
 		} catch (Exception e) {
 			// TODO: handle exception
-			response.sendRedirect("index.jsp?mensaje=Error! No se registro al estudiante..."+e.getMessage());
+			response.sendRedirect("index.jsp?msj=addNOk"+e.getMessage());
 		}	
 	}
 
